@@ -1,0 +1,28 @@
+.logoWrapper img {
+  animation: logoIconRotation 15s linear infinite;
+  width: 2em;
+  margin-right: 0.625em;
+}
+
+.logoWrapper {
+  text-decoration: none;
+  transition: 0.25s all;
+}
+
+.logoWrapper p {
+  color: white;
+}
+
+@keyframes logoIconRotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logoWrapper:hover {
+  outline: 1px solid var(--main-color);
+  outline-offset: 0.5em;
+}

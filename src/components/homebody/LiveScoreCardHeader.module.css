@@ -1,0 +1,53 @@
+.statsCardHeader {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.statsCardHeader > button:last-of-type {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(150%);
+}
+
+.statsCardHeader > button,
+.statsCardHeader > div > button {
+  background: var(--secondary-color);
+  font-weight: 300;
+}
+
+.statsCardHeader button:hover {
+  background-color: #00585f;
+}
+
+.statsCardHeader button.active {
+  background: var(--main-color);
+}
+
+.statsCardHeader button div {
+  transition: 0.5s all;
+}
+
+.statsCardHeader .arrow {
+  margin-left: 0.5em;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+}
+
+.statsCardHeader p {
+  font-size: 0.875em;
+  margin-top: 0.5em;
+}
+
+.statsCardHeader .isCalendarActive {
+  top: 3em;
+  background-color: #00585f;
+}
+
+.statsCardHeader .isCalendarActive div {
+  transform: rotate(180deg);
+}

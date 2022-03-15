@@ -1,0 +1,15 @@
+.singleFixtureCard {
+  background-color: var(--box-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3.125em 0;
+}
+
+.singleFixtureCard > div {
+  width: 80%;
+  background-color: var(--white-color);
+  padding: 3.125em;
+  display: grid;
+  gap: 3.125em;
+}

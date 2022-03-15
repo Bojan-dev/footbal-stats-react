@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+
 import './App.css';
+
+import 'react-calendar/dist/Calendar.css';
+
+import Navigation from './components/navigation/Navigation';
+import HomeBody from './pages/HomeBody';
+import Fixtures from './pages/Fixtures';
+import SingleFixture from './pages/SingleFixture';
+import NotFound from './pages/NotFound';
+import FixedLiveResults from './components/livefixtures/FixedLiveResults';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigation />
+      <FixedLiveResults />
+      <Routes>
+        <Route path="/" element={<HomeBody />} />
+        <Route path="/fixtures" element={<Fixtures />} />
+        <Route path="/fixtures/:fixtureId" element={<SingleFixture />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 

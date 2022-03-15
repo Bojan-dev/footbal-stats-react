@@ -1,0 +1,7 @@
+.errorMessage {
+  margin: 3em;
+}
+
+.errorMessage h3 {
+  color: var(--error-color);
+}

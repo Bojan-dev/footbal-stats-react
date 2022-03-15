@@ -1,0 +1,28 @@
+.filterCards {
+  margin-top: 10em;
+  justify-content: flex-start;
+}
+
+.filterCards button {
+  font-weight: 300;
+  background-color: var(--box-color-light);
+  color: var(--text-color-un);
+  border-radius: 30px;
+  font-size: 1rem;
+  margin: 0 0.75em;
+  padding: 0.625em 2.5em;
+  text-transform: capitalize;
+  border: 1px solid var(--box-color);
+}
+
+.filterCards button.active,
+.filterCards button.active:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  -webkit-text-stroke: 0;
+  border: none;
+}
+
+.filterCards button:hover {
+  background-color: #d1d1d1;
+}

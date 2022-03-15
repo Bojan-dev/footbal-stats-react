@@ -1,0 +1,15 @@
+.leagueHeader {
+  background-color: var(--box-color-light);
+  display: flex;
+  align-items: center;
+  padding: 0.9375em;
+}
+
+.leagueHeader h3 {
+  margin-bottom: 0.4em;
+}
+
+.leagueHeader img {
+  height: 2.5em;
+  margin-right: 0.9375em;
+}

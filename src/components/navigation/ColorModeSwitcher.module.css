@@ -1,0 +1,33 @@
+.colorModeSwitcher {
+  position: absolute;
+  right: 4vw;
+  height: 40%;
+  border-radius: 50px;
+  width: 1.25em;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.colorModeSwitcher .colorModeToggler {
+  position: absolute;
+  transform: translateY(20%);
+  background-color: #333333;
+  width: 70%;
+  height: 45%;
+  border-radius: 25px;
+  transition: 0.25s all ease-in;
+}
+
+.colorModeSwitcher:hover .colorModeToggler {
+  background-color: black;
+}
+
+.colorModeSwitcher .changeColorMode {
+  transform: translateY(100%);
+}
+
+.colorModeSwitcher .iconsContainer {
+  transform: translate(200%, 0);
+}

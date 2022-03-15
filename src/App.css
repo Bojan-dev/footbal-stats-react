@@ -1,38 +1,152 @@
-.App {
+main {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+section {
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.75em;
   text-align: center;
+  margin-top: 7em;
+  color: var(--text-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4 {
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+p {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+span {
+  color: var(--main-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+*::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--italic-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.125rem;
+  padding: 0.722em 2em;
+  letter-spacing: 0.025em;
+}
+
+button.mainBtn {
+  background-color: var(--main-color);
+}
+
+button.mainBtn:hover {
+  background-color: black;
+  outline: 2px solid var(--main-color);
+}
+
+button.secondaryBtn {
+  background-color: var(--secondary-color);
+}
+
+button.secondaryBtn:hover {
+  background-color: black;
+  outline: 2px solid var(--secondary-color);
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexRowSpace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flexRowStart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 80vw;
+  text-align: center;
+}
+
+.liveFixture,
+.liveFixture span {
+  color: var(--error-color);
+  font-weight: 500;
+}
+
+.finishedFixture {
+  font-weight: 500;
+}
+
+.liveMatchTimeAnimation span {
+  animation: visibilityAnim 1.5s infinite;
+}
+
+.marginTop {
+  margin-top: 20em;
+}
+
+@keyframes visibilityAnim {
+  0% {
+    visibility: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: initial;
   }
 }

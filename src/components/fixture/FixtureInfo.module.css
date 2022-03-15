@@ -1,0 +1,10 @@
+.leagueHeader {
+  justify-content: center;
+}
+
+.separationLine {
+  background: var(--third-color);
+  height: 1px;
+  width: 3.125em;
+  place-self: center;
+}

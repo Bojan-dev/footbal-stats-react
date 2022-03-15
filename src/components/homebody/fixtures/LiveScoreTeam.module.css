@@ -1,0 +1,18 @@
+.teamInfo {
+  margin: 0.75em 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.teamInfo > div {
+  display: flex;
+}
+
+.teamInfo img {
+  width: 1.5em;
+  height: fit-content;
+}
+
+.teamInfo p {
+  font-weight: 500;
+}

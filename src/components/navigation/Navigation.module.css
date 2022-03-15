@@ -1,0 +1,80 @@
+header {
+  position: fixed;
+  background: black;
+  color: white;
+  padding: 1.5em 10vw 0 10vw;
+  width: 100vw;
+  top: 0;
+  z-index: 100;
+}
+
+.headerDarkMode {
+  border-bottom: 1px solid #4c4c4c;
+}
+
+header > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav {
+  margin-top: 1.5625em;
+  border-top: #4c4c4c 1px solid;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav li {
+  height: 4.375em;
+  cursor: pointer;
+}
+
+nav li a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav .activePage {
+  border: 4px solid var(--main-color);
+}
+
+nav .nonActivePage:hover {
+  border: 2px solid var(--main-color);
+}
+
+nav .activePage,
+nav .nonActivePage:hover {
+  border-left: none;
+  border-right: none;
+}
+
+.rightRow div {
+  height: 1.5625em;
+  width: 1px;
+  background-color: white;
+}
+
+.rightRow > * {
+  margin: 0 1em;
+}
+
+.rightRow button:last-of-type {
+  margin: 0 0 0 1em;
+}
+
+.searchBar {
+  padding: 0.9375em 1.25em;
+  transition: all 0.25s ease-in;
+}
+
+.searchBar:focus {
+  outline: 3px solid #ddf2ff;
+  transform: scaleX(107%);
+}

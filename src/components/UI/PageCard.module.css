@@ -1,0 +1,5 @@
+.PageCard {
+  border: 1px solid var(--third-color);
+  padding: 0 5em 5em 5em;
+  text-align: center;
+}

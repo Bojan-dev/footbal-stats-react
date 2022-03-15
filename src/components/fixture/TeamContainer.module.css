@@ -1,0 +1,15 @@
+.teamContainer {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--third-color);
+  padding: 1.5625em;
+  width: 15em;
+}
+
+.teamContainer img {
+  height: 5em;
+}
+
+.teamContainer h3 {
+  margin-top: 0.5em;
+}

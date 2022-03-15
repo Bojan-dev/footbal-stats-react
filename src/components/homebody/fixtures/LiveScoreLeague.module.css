@@ -1,0 +1,16 @@
+.LiveScoreFixtures {
+  width: 100%;
+  margin-top: 3.125em;
+  border: 5px solid #f1f1f1;
+}
+
+.LiveScoreFixtures > div:last-child {
+  padding: 2.1875em 3.125em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.125em;
+}
+
+.LiveScoreFixtures img {
+  margin-right: 0.9375em;
+}

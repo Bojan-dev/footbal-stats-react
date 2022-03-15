@@ -1,0 +1,23 @@
+.loadingIconWrapper {
+  margin: 2em 0;
+  color: var(--third-color);
+}
+
+.loadingIconWrapperDark {
+  margin: 2em 0;
+  color: white;
+}
+
+.loadingIconWrapper svg,
+.loadingIconWrapperDark svg {
+  animation: rotateLoad 2s infinite ease-in-out;
+}
+
+@keyframes rotateLoad {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

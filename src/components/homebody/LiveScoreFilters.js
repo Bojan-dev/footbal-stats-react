@@ -1,10 +1,34 @@
 import classes from './LiveScoreFilters.module.css';
 
-import { isMatchLive, isMatchFinished } from '../../functions/getFixtureStatus';
+import { useDispatch } from 'react-redux';
 
-const LiveScoreFilters = ({ filterBtnsHandler, urlParam }) => {
+import { fixturesActions } from '../../store/fixtures-slice';
+
+const LiveScoreFilters = ({ urlParam, setSearchParam }) => {
+  const dispatch = useDispatch();
+
+  const paramFilter = urlParam.get('fixtures');
+
   const onFilterSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleAllFixtures = () => {
+    dispatch(fixturesActions.clearFilteredFixtures());
+
+    setSearchParam({});
+  };
+
+  const handleLiveFixtures = (e) => {
+    dispatch(fixturesActions.filterLiveFixtures());
+
+    setSearchParam({ fixtures: e.target.value });
+  };
+
+  const handleFinishedFixtures = (e) => {
+    dispatch(fixturesActions.filterFinishedFixtures());
+
+    setSearchParam({ fixtures: e.target.value });
   };
 
   return (
@@ -13,25 +37,22 @@ const LiveScoreFilters = ({ filterBtnsHandler, urlParam }) => {
       className={`flexRow ${classes.filterCards}`}
     >
       <button
-        className={!urlParam.get('filter') ? classes.active : ''}
-        onClick={filterBtnsHandler.bind(null, undefined, '/', true)}
+        onClick={handleAllFixtures}
+        className={!paramFilter ? classes.active : ''}
       >
         all
       </button>
       <button
-        className={urlParam.get('filter') === 'live' ? classes.active : ''}
-        onClick={filterBtnsHandler.bind(null, isMatchLive, 'live', false)}
+        value={'live'}
+        onClick={handleLiveFixtures}
+        className={paramFilter === 'live' ? classes.active : ''}
       >
         live
       </button>
       <button
-        className={urlParam.get('filter') === 'finished' ? classes.active : ''}
-        onClick={filterBtnsHandler.bind(
-          null,
-          isMatchFinished,
-          'finished',
-          false
-        )}
+        value={'finished'}
+        onClick={handleFinishedFixtures}
+        className={paramFilter === 'finished' ? classes.active : ''}
       >
         finished
       </button>

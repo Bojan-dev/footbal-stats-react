@@ -92,6 +92,12 @@ input {
   justify-content: center;
 }
 
+.flexRowCenter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .flexRowSpace {
   display: flex;
   align-items: center;

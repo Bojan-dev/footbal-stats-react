@@ -1,9 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
-import useApiCalls from '../../hooks/useApiCalls';
-import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-import Loading from '../UI/Loading';
-import Error from '../UI/Error';
+import { useSearchParams } from 'react-router-dom';
 
 import getCurrentDate from '../../functions/getCurrentDate';
 
@@ -11,71 +8,30 @@ import LiveScoreCardHeader from './LiveScoreCardHeader';
 import LiveScoreFilters from './LiveScoreFilters';
 import LiveScoreLeague from './fixtures/LiveScoreLeague';
 
+import Loading from '../UI/Loading';
+import Error from '../UI/Error';
+
+import { fetchFixturesData } from '../../store/fixtures-slice';
+import { useDispatch, useSelector } from 'react-redux';
+
 const StatsCard = () => {
-  const [selectedFixtures, setSelectedFixtures] = useState([]);
-  const [filteredFixtures, setFilteredFixtures] = useState([]);
+  const dispatch = useDispatch();
+  const fixtures = useSelector((state) => state.fixtures.fixtures);
+  const filteredFixtures = useSelector(
+    (state) => state.fixtures.filteredFixtures
+  );
+
+  const [searchParam, setSearchParam] = useSearchParams();
+
   const [selectedDate, setSelectedDate] = useState(getCurrentDate());
-
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const filterBtnsHandler = (filterFun, navigatePath, initial = false) => {
-    if (initial) {
-      setSearchParams({});
-      setFilteredFixtures([]);
-      return;
-    }
-
-    const filteredFixtures = selectedFixtures.map((leagueArr) => {
-      return leagueArr.filter((fixture) =>
-        filterFun(fixture.fixture.status.short)
-      );
-    });
-
-    const filterEmptyLeagues = filteredFixtures.filter(
-      (league) => league.length > 0
-    );
-
-    setFilteredFixtures(filterEmptyLeagues);
-
-    setSearchParams({ filter: navigatePath });
-  };
-
-  const handleAllTodaysFixtures = useCallback((data) => {
-    let selectedFixturesByLeagues = [];
-
-    data.response.forEach((fixture) => {
-      if (selectedFixturesByLeagues[fixture.league.id]) {
-        selectedFixturesByLeagues[fixture.league.id] = [
-          ...selectedFixturesByLeagues[fixture.league.id],
-          fixture,
-        ];
-
-        return;
-      }
-      selectedFixturesByLeagues[fixture.league.id] = [fixture];
-    });
-
-    const filterFixturesByLeague = selectedFixturesByLeagues.filter(
-      (fixture) => fixture
-    );
-
-    setSelectedFixtures(filterFixturesByLeague);
-  }, []);
-
-  //prettier-ignore
-  const {sendRequest: fetchTodayFixtures, isLoading: isLoadingTodayFixtures, error: errorTodayFixtures} = useApiCalls(handleAllTodaysFixtures);
+  const [dataStatus, setDataStatus] = useState({});
 
   useEffect(() => {
-    fetchTodayFixtures(
-      `https://v3.football.api-sports.io/fixtures`,
-      `date=${selectedDate}`
-    );
-
-    setSearchParams({});
-  }, [fetchTodayFixtures, selectedDate, setSearchParams]);
+    dispatch(fetchFixturesData(selectedDate, setDataStatus));
+  }, [dispatch, selectedDate]);
 
   const currentFixtures =
-    filteredFixtures.length > 0 ? filteredFixtures : selectedFixtures;
+    filteredFixtures.length > 0 ? filteredFixtures : fixtures;
 
   return (
     <>
@@ -84,23 +40,19 @@ const StatsCard = () => {
         setDate={setSelectedDate}
       ></LiveScoreCardHeader>
       <LiveScoreFilters
-        filterBtnsHandler={filterBtnsHandler}
-        urlParam={searchParams}
+        urlParam={searchParam}
+        setSearchParam={setSearchParam}
       ></LiveScoreFilters>
-      {isLoadingTodayFixtures ? (
-        <Loading />
-      ) : (
+      {dataStatus.status === 'loading' && <Loading />}
+      {dataStatus.status === 'success' &&
         currentFixtures.map((league) => (
           <LiveScoreLeague
             league={league}
             key={league[0].league.id}
             id={league[0].league.id}
           ></LiveScoreLeague>
-        ))
-      )}
-      {!isLoadingTodayFixtures && errorTodayFixtures && (
-        <Error message={errorTodayFixtures} />
-      )}
+        ))}
+      {dataStatus.status === 'error' && <Error message={dataStatus.message} />}
     </>
   );
 };

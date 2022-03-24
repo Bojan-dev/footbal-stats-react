@@ -5,7 +5,7 @@
   width: 15em;
   padding: 1em;
   z-index: 3;
-  background-color: white;
+  background-color: var(--white-color);
   border: 1px solid var(--third-color);
   border-top: 0;
   border-right: 0;
@@ -16,12 +16,17 @@
 }
 
 .liveDiv {
+  margin-right: 0.625em;
   position: relative;
   width: 8px;
   height: 8px;
   background-color: var(--error-color);
   border-radius: 50%;
   animation: opacityHandler 1.5s ease-in-out infinite;
+}
+
+.liveResultsBar h4 {
+  color: var(--text-color);
 }
 
 .liveDiv::before {
@@ -46,4 +51,26 @@
   100% {
     opacity: 100%;
   }
+}
+
+.closeLiveScore {
+  color: var(--error-color);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25em;
+  background-color: var(--color-white);
+}
+
+.liveScoreClosed {
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  top: 10.5em;
+}
+
+.liveScoreClosed button {
+  width: 100%;
+  width: 2em;
+  color: var(--text-color);
+  background-color: var(--color-white);
 }

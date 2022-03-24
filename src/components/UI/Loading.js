@@ -12,8 +12,6 @@ const Loading = () => {
 
   const loadingIcon = <FontAwesomeIcon size="2x" icon={faSyncAlt} />;
 
-  console.log(isColorModeWhite);
-
   return (
     <div
       className={

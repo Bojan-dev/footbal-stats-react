@@ -1,6 +1,7 @@
 import classes from './LeagueHeader.module.css';
+import MatchStatus from './MatchStatus';
 
-const LeagueHeader = ({ leagueInfo, className }) => {
+const LeagueHeader = ({ leagueInfo, className, matchStatus, islive }) => {
   return (
     <div className={`${classes.leagueHeader} ${className}`}>
       <img
@@ -11,6 +12,18 @@ const LeagueHeader = ({ leagueInfo, className }) => {
         <h3>{leagueInfo.name}</h3>
         <p>{leagueInfo.country}</p>
       </div>
+      {matchStatus && (
+        <div className={`liveMatchTimeAnimation ${classes.headerElapsedTime}`}>
+          {islive ? (
+            <MatchStatus
+              elapsedTime={matchStatus.elapsedTime}
+              matchStatus={matchStatus}
+            />
+          ) : (
+            <p className="finishedFixture">FT</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

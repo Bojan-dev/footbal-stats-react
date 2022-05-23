@@ -27,5 +27,5 @@
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  border: 2px solid var(--error-color);
+  border: 2px solid var(--third-color);
 }

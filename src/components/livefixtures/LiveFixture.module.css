@@ -1,0 +1,38 @@
+.liveFixtureLeague {
+  padding: 0.325em;
+}
+
+.liveFixtureLeague h3 {
+  font-size: 0.625em;
+}
+
+.liveFixtureLeague img {
+  max-width: 2em;
+  max-height: 1.25em;
+  margin-right: 0.5em;
+}
+
+.liveFixtureLeague div p {
+  font-size: 0.625em;
+}
+
+.liveScoreFixture {
+  border: 1px solid #f1f1f1;
+  padding: 0 0.5em;
+  margin-bottom: 1em;
+  background-color: white;
+}
+
+.liveScoreFixture:hover {
+  background-color: var(--box-color-light);
+  border-top: 1px solid white;
+}
+
+.teamStyles p {
+  color: var(--text-color-un);
+}
+
+.teamStyles img {
+  width: 1em;
+  margin-right: 0.25em;
+}

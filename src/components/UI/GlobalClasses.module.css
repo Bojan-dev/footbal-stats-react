@@ -1,0 +1,15 @@
+.resultChanged {
+  animation: handleBkg 2.5s infinite;
+}
+
+@keyframes handleBkg {
+  0% {
+    background-color: hsl(6, 80%, 90%);
+  }
+  50% {
+    background-color: hsl(6, 80%, 83%);
+  }
+  100% {
+    background-color: hsl(6, 80%, 90%);
+  }
+}

@@ -20,10 +20,26 @@ const SingleFixture = () => {
   }, []);
 
   const { sendRequest, isLoading, error } = useApiCalls(handlePlayerData);
+  const { sendRequest: sendRequestRepetable } = useApiCalls(handlePlayerData);
 
+  //Initial fixture Load:
   useEffect(() => {
     sendRequest('https://v3.football.api-sports.io/fixtures/', `id=${params}`);
   }, [sendRequest, params]);
+
+  //Repetable fixture fetching:
+  useEffect(() => {
+    const fetchTimer = setInterval(() => {
+      sendRequestRepetable(
+        'https://v3.football.api-sports.io/fixtures/',
+        `id=${params}`
+      );
+    }, 60 * 1000);
+
+    return () => {
+      clearInterval(fetchTimer);
+    };
+  });
 
   return (
     <main className="container marginTop">

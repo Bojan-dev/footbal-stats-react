@@ -14,7 +14,11 @@ const CurrentTime = () => {
     };
   }, []);
 
-  return <p>🕛 {currentTime}</p>;
+  return (
+    <>
+      <p>🕛 {currentTime}</p>
+    </>
+  );
 };
 
 export default CurrentTime;

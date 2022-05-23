@@ -12,14 +12,27 @@ const LiveScoreTeam = (props) => {
   } else if (props.isFinished) {
     handleGoals = <p className="finishedFixture">{props.goals}</p>;
   } else {
-    handleGoals = props.goals ?? '-';
+    handleGoals = props.goals !== null ? <p>{props.goals}</p> : '-';
   }
 
   return (
-    <div className={`flexRow ${classes.teamInfo}`}>
+    <div
+      className={`flexRow ${classes.teamInfo} ${
+        props.className ? props.className : ''
+      }`}
+    >
       <div>
         <img src={props.logo} alt={`${props.name} logo`} />
-        <p>{props.name}</p>
+        <p>
+          {props.name.length > 13 ? `${props.name.slice(0, 13)}.` : props.name}
+        </p>
+        {props.scored ? (
+          <p className={`${classes.goalScored} liveFixture`}>
+            <span>⚽</span>
+          </p>
+        ) : (
+          ''
+        )}
       </div>
       {handleGoals}
     </div>

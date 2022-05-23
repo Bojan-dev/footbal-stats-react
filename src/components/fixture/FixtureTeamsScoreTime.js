@@ -3,6 +3,7 @@ import TeamContainer from './TeamContainer';
 import classes from './FixtureTeamsScoreTime.module.css';
 
 import getFixtureStatus from '../../functions/getFixtureStatus';
+import CountUpTimer from './CountUpTimer';
 
 const FixtureTeamsScoreTime = (props) => {
   const score = `${props.score.home ?? ''}-${props.score.away ?? ''}`;
@@ -15,22 +16,19 @@ const FixtureTeamsScoreTime = (props) => {
 
   const handleClasses = matchStatus.inProccess ? 'liveFixture' : '';
 
+  console.log(matchStatus);
+
   return (
     <div className={classes.wrapper}>
       <TeamContainer team={props.teams.home}></TeamContainer>
       <div className="flexColumn">
         <p>{dateFormatted}</p>
         <h1 className={handleClasses}>{`${score}`}</h1>
-        {matchStatus.isPlayingNow ? (
-          <div
-            className={`${handleClasses} ${
-              matchStatus.isPlayingNow ? 'liveMatchTimeAnimation' : ''
-            }`}
-          >
-            <p className={handleClasses}>
-              {matchStatus.status} <span>'</span>
-            </p>
-          </div>
+        {matchStatus.inProccess || matchStatus.isFinished ? (
+          <CountUpTimer
+            matchStatus={matchStatus.status}
+            elapsedTime={props.matchTime}
+          />
         ) : (
           <span></span>
         )}

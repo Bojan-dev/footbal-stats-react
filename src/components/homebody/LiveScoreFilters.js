@@ -1,3 +1,5 @@
+import React from 'react';
+
 import classes from './LiveScoreFilters.module.css';
 
 import { useDispatch } from 'react-redux';
@@ -13,21 +15,8 @@ const LiveScoreFilters = ({ urlParam, setSearchParam }) => {
     e.preventDefault();
   };
 
-  const handleAllFixtures = () => {
-    dispatch(fixturesActions.clearFilteredFixtures());
-
-    setSearchParam({});
-  };
-
-  const handleLiveFixtures = (e) => {
-    dispatch(fixturesActions.filterLiveFixtures());
-
-    setSearchParam({ fixtures: e.target.value });
-  };
-
-  const handleFinishedFixtures = (e) => {
-    dispatch(fixturesActions.filterFinishedFixtures());
-
+  const handleSelectedFilter = (fnc, e) => {
+    dispatch(fnc());
     setSearchParam({ fixtures: e.target.value });
   };
 
@@ -37,21 +26,31 @@ const LiveScoreFilters = ({ urlParam, setSearchParam }) => {
       className={`flexRow ${classes.filterCards}`}
     >
       <button
-        onClick={handleAllFixtures}
+        value={''}
+        onClick={handleSelectedFilter.bind(
+          this,
+          fixturesActions.clearFilteredFixtures
+        )}
         className={!paramFilter ? classes.active : ''}
       >
         all
       </button>
       <button
         value={'live'}
-        onClick={handleLiveFixtures}
+        onClick={handleSelectedFilter.bind(
+          this,
+          fixturesActions.filterLiveFixtures
+        )}
         className={paramFilter === 'live' ? classes.active : ''}
       >
         live
       </button>
       <button
         value={'finished'}
-        onClick={handleFinishedFixtures}
+        onClick={handleSelectedFilter.bind(
+          this,
+          fixturesActions.filterFinishedFixtures
+        )}
         className={paramFilter === 'finished' ? classes.active : ''}
       >
         finished

@@ -13,3 +13,12 @@
   height: 2.5em;
   margin-right: 0.9375em;
 }
+
+.headerElapsedTime {
+  margin-left: auto;
+  padding-left: 0.25em;
+}
+
+.finishedLiveFixture {
+  color: var(--text-color-un);
+}

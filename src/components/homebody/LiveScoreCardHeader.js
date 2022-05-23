@@ -10,10 +10,18 @@ import Calendar from 'react-calendar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-const LiveScoreCardHeader = ({ date, setDate }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { fixturesActions } from '../../store/fixtures-slice';
+
+const LiveScoreCardHeader = () => {
+  const fixturesSelectedDate = useSelector(
+    (state) => state.fixtures.fixturesDate
+  );
+  const dispatch = useDispatch();
+
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  const isDateToday = getCurrentDate() === date;
+  const isDateToday = getCurrentDate() === fixturesSelectedDate;
 
   const oneYearForward = new Date(
     new Date().setFullYear(new Date().getFullYear() + 1)
@@ -37,14 +45,34 @@ const LiveScoreCardHeader = ({ date, setDate }) => {
         onSubmit={liveScoreHandler}
         className={`flexRowStart ${classes.statsCardHeader}`}
       >
-        <button onClick={() => setDate(getSelectedDate(date, true, false))}>
+        <button
+          onClick={() =>
+            dispatch(
+              fixturesActions.changeFixturesDate({
+                date: getSelectedDate(fixturesSelectedDate, true, false),
+              })
+            )
+          }
+        >
           &lt;
         </button>
         <button onClick={openCalendarHandler} className={`${classes.active} `}>
-          <h4>{isDateToday ? 'Today' : String(new Date(date)).slice(0, 3)}</h4>
-          <p>{getFormattedDate(date)}</p>
+          <h4>
+            {isDateToday
+              ? 'Today'
+              : String(new Date(fixturesSelectedDate)).slice(0, 3)}
+          </h4>
+          <p>{getFormattedDate(fixturesSelectedDate)}</p>
         </button>
-        <button onClick={() => setDate(getSelectedDate(date, true, true))}>
+        <button
+          onClick={() =>
+            dispatch(
+              fixturesActions.changeFixturesDate({
+                date: getSelectedDate(fixturesSelectedDate, true, true),
+              })
+            )
+          }
+        >
           &gt;
         </button>
         <button
@@ -59,7 +87,11 @@ const LiveScoreCardHeader = ({ date, setDate }) => {
         {isCalendarOpen && (
           <Calendar
             onClickDay={(value) => {
-              setDate(getSelectedDate(value));
+              dispatch(
+                fixturesActions.changeFixturesDate({
+                  date: getSelectedDate(value),
+                })
+              );
               setIsCalendarOpen(false);
             }}
             minDate={oneYearBackwards}
@@ -71,4 +103,4 @@ const LiveScoreCardHeader = ({ date, setDate }) => {
   );
 };
 
-export default LiveScoreCardHeader;
+export default React.memo(LiveScoreCardHeader);

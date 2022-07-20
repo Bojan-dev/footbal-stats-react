@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './LiveScoreFilters.module.css';
 
-import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchFixturesData } from '../../store/fixtures-slice';
 
 import { fixturesActions } from '../../store/fixtures-slice';
 
-const LiveScoreFilters = ({ urlParam, setSearchParam }) => {
+const LiveScoreFilters = ({ setDataStatus }) => {
+  const [searchParam, setSearchParam] = useSearchParams();
+
+  const fixturesSelectedDate = useSelector(
+    (state) => state.fixtures.fixturesDate
+  );
+
   const dispatch = useDispatch();
 
-  const paramFilter = urlParam.get('fixtures');
+  const paramFilter = searchParam.get('fixtures');
+
+  useEffect(() => {
+    setSearchParam({});
+    dispatch(
+      fetchFixturesData(
+        fixturesActions.updateFixturesInitially,
+        fixturesSelectedDate,
+        false,
+        setDataStatus
+      )
+    );
+  }, [dispatch, fixturesSelectedDate, setSearchParam, setDataStatus]);
 
   const onFilterSubmit = (e) => {
     e.preventDefault();

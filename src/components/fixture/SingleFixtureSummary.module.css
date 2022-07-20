@@ -1,0 +1,135 @@
+.paddingEl {
+  padding: 0.625em 1.5625em;
+}
+
+.halfTime {
+  width: 100%;
+  background-color: var(--box-color-light);
+}
+
+.fixtureEventWrapper {
+  width: 100%;
+  border: 1px solid var(--box-color);
+  color: var(--text-color);
+}
+
+.eventIconWrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: var(--box-color);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  margin: 0 0.5em;
+}
+
+.iconMargin {
+  margin-right: 0.5em;
+}
+
+.eventStatus {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.homeEvent,
+.awayEvent {
+  position: absolute;
+}
+
+.homeEvent {
+  right: 55vw;
+}
+
+.awayEvent {
+  left: 55vw;
+}
+
+.opacityDown {
+  opacity: 0.6;
+}
+
+.flexLineupConfig {
+  gap: 1.25em;
+}
+
+.flexLineupConfig div:nth-child(2) {
+  flex-grow: 2;
+}
+
+.lineupWrapper {
+  width: 20%;
+  gap: 1.5625em;
+}
+
+.marginBottom {
+  margin-bottom: 1em;
+}
+
+.lineupDiv {
+  border: 1px solid var(--text-color);
+  text-align: left;
+}
+
+.lineupDiv:last-child {
+  padding: 1.25em 0.625em;
+}
+
+.lineupDiv div:last-child {
+  margin-bottom: 0;
+}
+
+.lineupDiv:first-child {
+  padding: 0.3125em 0.625em;
+}
+
+.playerNumber {
+  border-radius: 50%;
+  width: 1.825em;
+  height: 1.825em;
+  color: var(--text-color-un);
+  margin-right: 0.3125em;
+}
+
+.playerNumber.sub {
+  background-color: var(--box-color);
+}
+
+.playerName {
+  white-space: nowrap;
+}
+
+.footballField {
+  position: relative;
+  background: url('../../images/football_field.svg');
+  background-size: cover;
+}
+
+.footballField > img {
+  visibility: hidden;
+}
+
+.lineup {
+  display: grid;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  place-items: center;
+}
+
+.lineup:last-child {
+  transform: translateY(100%);
+  grid-auto-flow: dense;
+}
+
+.lineupRow {
+  width: 90%;
+}
+
+.lineupPlayer {
+  gap: 0.5em;
+}

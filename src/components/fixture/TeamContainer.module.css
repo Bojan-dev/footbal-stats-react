@@ -4,6 +4,7 @@
   border: 1px solid var(--third-color);
   padding: 1.5625em;
   width: 15em;
+  background-color: var(--box-color-light);
 }
 
 .teamContainer img {

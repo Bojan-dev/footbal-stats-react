@@ -7,6 +7,10 @@ section {
   margin: 0 auto;
 }
 
+.width--max {
+  width: 100%;
+}
+
 h1 {
   font-size: 2.5rem;
   letter-spacing: 0.02em;
@@ -32,8 +36,16 @@ p {
   letter-spacing: 0.02em;
 }
 
+.textUnderline {
+  text-decoration: underline;
+}
+
 span {
   color: var(--main-color);
+}
+
+.italic {
+  color: var(--italic-color);
 }
 
 ul {
@@ -98,10 +110,26 @@ input {
   justify-content: flex-start;
 }
 
+.flexRowReverse {
+  flex-direction: row-reverse;
+}
+
 .flexRowSpace {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.flexRowSpaceStart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flexRowSpaceEvenly {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .flexRowStart {
@@ -120,6 +148,10 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.grid {
+  display: grid;
 }
 
 .container {
@@ -145,6 +177,61 @@ input {
   margin-top: 20em;
 }
 
+.textColorMode {
+  color: var(--text-color);
+}
+
+.textColorModeWhite {
+  color: var(--white-color);
+}
+
+.textColorWhite {
+  color: white;
+}
+
+.textColorTxt {
+  color: var(--text-color-un);
+}
+
+.boxColor {
+  background-color: var(--box-color);
+}
+
+.thirdColorBtn {
+  background-color: var(--third-color);
+  font-size: 0.925rem;
+  padding: 1em;
+  font-weight: 300;
+}
+
+.thirdColorBtn:hover {
+  background-color: hsl(203, 30%, 20%);
+}
+
+.fixturePadding {
+  padding: 3.125em;
+}
+
+.statsMargin {
+  margin-bottom: 1.5625em;
+}
+
+.redBkg {
+  background-color: var(--error-color);
+}
+
+.greenBkg {
+  background-color: var(--main-color);
+}
+
+.textBkg {
+  background-color: var(--text-color);
+}
+
+.whiteBkg {
+  background-color: white;
+}
+
 @keyframes visibilityAnim {
   0% {
     visibility: hidden;
@@ -154,5 +241,12 @@ input {
   }
   75% {
     visibility: initial;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  main,
+  .container {
+    width: 90vw;
   }
 }

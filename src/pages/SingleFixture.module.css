@@ -8,3 +8,7 @@
   width: 2.5em;
   place-self: center;
 }
+
+.fixtureInfoWrapper {
+  border: 1px solid var(--third-color);
+}

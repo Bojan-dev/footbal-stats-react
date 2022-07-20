@@ -10,6 +10,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import LiveFixture from './LiveFixture';
 
 import classes from './FixedLiveResults.module.css';
+import { shouldFetch } from '../../global_variables';
 
 const FixedLiveResults = () => {
   const dispatch = useDispatch();
@@ -38,19 +39,21 @@ const FixedLiveResults = () => {
   }, []);
 
   useEffect(() => {
-    const fetchingFixturesTimer = setInterval(() => {
-      dispatch(
-        fetchFixturesData(
-          fixturesActions.updateLiveFixtures,
-          false,
-          `live=all`,
-          false
-        )
-      );
-    }, 60 * 1000);
-    return () => {
-      clearInterval(fetchingFixturesTimer);
-    };
+    if (shouldFetch) {
+      const fetchingFixturesTimer = setInterval(() => {
+        dispatch(
+          fetchFixturesData(
+            fixturesActions.updateLiveFixtures,
+            false,
+            `live=all`,
+            false
+          )
+        );
+      }, 60 * 1000);
+      return () => {
+        clearInterval(fetchingFixturesTimer);
+      };
+    }
   }, [dispatch]);
 
   return (

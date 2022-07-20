@@ -7,7 +7,7 @@
 }
 
 .singleFixtureCard > div {
-  width: 80%;
+  width: 90%;
   background-color: var(--white-color);
   padding: 3.125em;
   display: grid;

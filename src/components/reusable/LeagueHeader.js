@@ -1,11 +1,13 @@
 import classes from './LeagueHeader.module.css';
 import MatchStatus from './MatchStatus';
 
+import missingFlag from '../../images/missingflag.png';
+
 const LeagueHeader = ({ leagueInfo, className, matchStatus, islive }) => {
   return (
     <div className={`${classes.leagueHeader} ${className}`}>
       <img
-        src={leagueInfo.flag || leagueInfo.logo}
+        src={leagueInfo.flag || leagueInfo.logo || missingFlag}
         alt={`${leagueInfo.country} flag`}
       />
       <div className="flexColumn">

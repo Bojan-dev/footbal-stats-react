@@ -1,0 +1,6 @@
+.notFound {
+  width: 100vw;
+  height: 75vh;
+  display: grid;
+  place-items: center;
+}

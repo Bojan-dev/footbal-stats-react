@@ -1,0 +1,9 @@
+.fixtureStatsHeader {
+  background-color: var(--third-color);
+  padding: 0 3em;
+  width: 100%;
+}
+
+.activeStatBtn {
+  border-bottom: 4px solid var(--error-color);
+}

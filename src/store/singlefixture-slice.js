@@ -5,6 +5,12 @@ const singleFixtureSlice = createSlice({
   initialState: {
     selectedFixture: {},
     goalEvents: [],
+    homeTeam: null,
+    awayTeam: null,
+    homeTeamId: null,
+    awayTeamId: null,
+    leagueInfo: null,
+    leagueTabInfo: [],
   },
   reducers: {
     updateSelectedFixture(state, action) {
@@ -36,6 +42,22 @@ const singleFixtureSlice = createSlice({
     },
     initializeGoalEvents(state) {
       state.goalEvents = [];
+    },
+    updateTeamsInfo(state, action) {
+      state.homeTeam = action.payload.homeTeam;
+      state.awayTeam = action.payload.awayTeam;
+      state.homeTeamId = action.payload.homeId;
+      state.awayTeamId = action.payload.awayId;
+      state.leagueInfo = action.payload.leagueInfo;
+    },
+    updateLeagueTable(state, action) {
+      state.leagueTable = action.payload.table;
+    },
+    reverseLeagueTable(state) {
+      state.leagueTable.standings[0].reverse();
+    },
+    sortLeagueTable(state, action) {
+      state.leagueTable.standings[0].sort();
     },
   },
 });

@@ -1,9 +1,9 @@
 import classes from './Error.module.css';
 
-const Error = (props) => {
+const Error = ({ message }) => {
   return (
     <div className={classes.errorMessage}>
-      <h3>{props.message}, try again later!</h3>
+      <h3>{message}, try again later!</h3>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 
-import getEventStatus from '../../functions/getEventStatus';
+import getEventStatus from '../../../functions/getEventStatus';
 
-import classes from './SingleFixtureSummary.module.css';
+import classes from '../SingleFixtureClasses.module.css';
 
 const FixtureSummaryEvent = ({ event, eventByHomeTeam }) => {
   const goalEvents = useSelector((state) => state.fixture.goalEvents);

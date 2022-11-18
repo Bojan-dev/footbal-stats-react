@@ -46,7 +46,7 @@ const SingleFixtureStats = () => {
                     </p>
                     <p>{awayStatsValue}</p>
                   </div>
-                  <div className={`${classes.statsBar} boxColor`}>
+                  <div className={`${classes.statsBar} boxBkg`}>
                     <div
                       style={{ width: `${homeWidth}%` }}
                       className="redBkg"

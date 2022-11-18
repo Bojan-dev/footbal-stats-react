@@ -23,18 +23,27 @@ const LiveScoreTeam = (props) => {
     >
       <div>
         <img src={props.logo} alt={`${props.name} logo`} />
-        <p>
+        <p
+          className={`${props.winner ? 'finishedFixture' : ''} ${
+            props.selectedTeam && `${classes.tagWinner} boxBkg`
+          }`}
+        >
           {props.name.length > 13 ? `${props.name.slice(0, 13)}.` : props.name}
         </p>
-        {props.scored ? (
+        {props.scored && (
           <p className={`${classes.goalScored} liveFixture`}>
             <span>⚽</span>
           </p>
-        ) : (
-          ''
         )}
       </div>
-      {handleGoals}
+      <div>
+        {handleGoals}
+        {props.halfTimeGoals >= 0 && (
+          <p className={`textColorBox ${classes.halfTime}`}>
+            ({props.halfTimeGoals ?? props.halfTimeGoals})
+          </p>
+        )}
+      </div>
     </div>
   );
 };

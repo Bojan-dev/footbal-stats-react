@@ -70,3 +70,10 @@ export const isMatchFinished = (matchStatus) => {
 
   return isMatchPlayed ? true : false;
 };
+
+const notStartedStatuses = ['TBD', 'NS'];
+
+export const hasMatchStarted = (matchStatus) => {
+  if (notStartedStatuses.find((status) => matchStatus === status)) return false;
+  return true;
+};

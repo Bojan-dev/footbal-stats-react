@@ -2,7 +2,6 @@
   position: absolute;
   border-radius: 10px;
   min-width: 25em;
-  z-index: 22;
   left: 0;
   transform: translate(22em, 3em);
 }
@@ -71,4 +70,10 @@
 .react-calendar__tile--now:enabled:focus {
   background-color: var(--main-color);
   color: white;
+}
+
+@media only screen and (max-width: 1500px) {
+  .react-calendar {
+    transform: translate(-2.75em, 5em);
+  }
 }

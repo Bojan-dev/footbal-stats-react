@@ -22,9 +22,9 @@ const Navigation = () => {
             type="text"
             placeholder="Search..."
           />
-          <div />
+          {/* <div />
           <button className="mainBtn">SIGN IN</button>
-          <button className="secondaryBtn">SIGN UP</button>
+          <button className="secondaryBtn">SIGN UP</button> */}
         </div>
         <ColorModeSwitcher />
       </div>

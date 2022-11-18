@@ -1,6 +1,8 @@
-import classes from './SingleFixtureSummary.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
-import formatPlayerName from '../../functions/formatPlayerName';
+import classes from '../SingleFixtureClasses.module.css';
+
+import formatPlayerName from '../../../functions/formatPlayerName';
 
 const ORDER_OF_POSITIONS = ['G', 'D', 'M', 'F'];
 
@@ -40,6 +42,7 @@ const SingleFixtureFieldLineup = ({ players, formation, isHome }) => {
 
         return (
           <div
+            key={uuidv4()}
             className={`grid ${classes.lineupRow}`}
             style={{
               gridTemplateColumns: `repeat(${Number(
@@ -48,7 +51,10 @@ const SingleFixtureFieldLineup = ({ players, formation, isHome }) => {
             }}
           >
             {playersPerPositionByOrder.map((player) => (
-              <div className={`${classes.lineupPlayer} flexColumnCenter`}>
+              <div
+                key={uuidv4()}
+                className={`${classes.lineupPlayer} flexColumnCenter`}
+              >
                 <div className={`${classes.playerNumber} ${bkgColor} flexRow `}>
                   <p
                     className={`finishedFixture ${

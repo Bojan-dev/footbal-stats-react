@@ -51,3 +51,9 @@
 .statsCardHeader .isCalendarActive div {
   transform: rotate(180deg);
 }
+
+@media only screen and (max-width: 1500px) {
+  .statsCardHeader > button:last-of-type {
+    display: none;
+  }
+}

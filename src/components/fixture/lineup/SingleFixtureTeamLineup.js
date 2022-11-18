@@ -1,6 +1,6 @@
-import formatPlayerName from '../../functions/formatPlayerName';
+import formatPlayerName from '../../../functions/formatPlayerName';
 
-import classes from './SingleFixtureSummary.module.css';
+import classes from '../SingleFixtureClasses.module.css';
 
 const SingleFixtureTeamLineup = ({ lineup, subs, coach, isHome }) => {
   return (

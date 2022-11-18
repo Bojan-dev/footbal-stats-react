@@ -43,10 +43,7 @@ const LiveScoreFilters = ({ setDataStatus }) => {
   };
 
   return (
-    <form
-      onSubmit={onFilterSubmit}
-      className={`flexRow ${classes.filterCards}`}
-    >
+    <form onSubmit={onFilterSubmit} className={classes.filterCards}>
       <button
         value={''}
         onClick={handleSelectedFilter.bind(

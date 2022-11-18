@@ -14,14 +14,20 @@
   height: fit-content;
 }
 
-.teamInfo p {
-  font-weight: 500;
-}
-
 .goalScored {
   margin-left: 1em;
 }
 
 .goalScored span {
   font-size: 0.825rem;
+}
+
+.halfTime {
+  width: 1.5em;
+  margin-left: 1em;
+}
+
+.tagWinner {
+  padding: 0.325em;
+  color: var(--text-color-un);
 }

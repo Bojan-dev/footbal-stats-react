@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import classes from './SingleFixtureSummary.module.css';
+import classes from './SingleFixtureClasses.module.css';
 
 import whistleIcon from '../../../src/images/whistle_icon.svg';
 import stadiumIcon from '../../../src/images/stadium_icon.svg';

@@ -14,3 +14,16 @@
 .LiveScoreFixtures img {
   margin-right: 0.9375em;
 }
+
+@media only screen and (max-width: 1000px) {
+  .LiveScoreFixtures > div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .LiveScoreFixtures > div:last-child {
+    padding: 2em 1em;
+  }
+}

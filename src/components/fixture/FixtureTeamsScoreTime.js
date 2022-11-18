@@ -6,6 +6,7 @@ import classes from './FixtureTeamsScoreTime.module.css';
 
 import getFixtureStatus from '../../functions/getFixtureStatus';
 import CountUpTimer from './CountUpTimer';
+import getFormattedDate from '../../functions/getFormattedDate';
 
 import getTime from '../../functions/getTime';
 
@@ -15,10 +16,6 @@ const FixtureTeamsScoreTime = () => {
   const score = `${singleFixture.goals.home ?? ''}-${
     singleFixture.goals.away ?? ''
   }`;
-
-  const dateSplit = singleFixture.fixture.date.replace('T', '-').split('-');
-
-  const dateFormatted = `${dateSplit[2]}.${dateSplit[1]}.${dateSplit[0]}`;
 
   const matchStatus = getFixtureStatus(
     singleFixture.fixture.status.short,
@@ -32,7 +29,8 @@ const FixtureTeamsScoreTime = () => {
       <TeamContainer team={singleFixture.teams.home} />
       <div className="flexColumn">
         <p className="textColorMode">
-          {dateFormatted} &nbsp; {getTime(singleFixture.fixture.date)}
+          {getFormattedDate(singleFixture.fixture.date)} &nbsp;{' '}
+          {getTime(singleFixture.fixture.date)}
         </p>
         <h1 className={handleClasses}>{`${score}`}</h1>
         {matchStatus.inProccess || matchStatus.isFinished ? (

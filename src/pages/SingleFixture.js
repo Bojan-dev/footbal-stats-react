@@ -14,7 +14,7 @@ import SingleFixtureCard from '../components/UI/SingleFixtureCard';
 import LeagueHeader from '../components/reusable/LeagueHeader';
 import FixtureTeamsScoreTime from '../components/fixture/FixtureTeamsScoreTime';
 import SingleFixtureNavigation from '../components/fixture/SingleFixtureNavigation';
-import SingleFixtureSummary from '../components/fixture/SingleFixtureSummary';
+import SingleFixtureSummary from '../components/fixture/summary/SingleFixtureSummary';
 import SingleFixtureAdditionalInfo from '../components/fixture/SingleFixtureAdditionalInfo';
 import Loading from '../components/UI/Loading';
 import Error from '../components/UI/Error';
@@ -32,6 +32,19 @@ const SingleFixture = () => {
 
       dispatch(
         singleFixtureActions.updateSelectedFixture({ fixture: fixtureData })
+      );
+
+      dispatch(
+        singleFixtureActions.updateTeamsInfo({
+          homeTeam: fixtureData.teams.home.name,
+          awayTeam: fixtureData.teams.away.name,
+          homeId: fixtureData.teams.home.id,
+          awayId: fixtureData.teams.away.id,
+          leagueInfo: {
+            id: fixtureData.league.id,
+            season: fixtureData.league.season,
+          },
+        })
       );
     },
     [dispatch]

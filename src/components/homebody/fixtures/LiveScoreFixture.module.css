@@ -44,3 +44,13 @@
   width: 100%;
   margin-left: 2em;
 }
+
+@media only screen and (max-width: 600px) {
+  .liveScoreFixture {
+    padding: 1.25em 1.25em;
+  }
+
+  .timeBox {
+    margin-right: 0.75em;
+  }
+}

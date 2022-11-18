@@ -86,6 +86,7 @@ const LiveScoreCardHeader = () => {
         </button>
         {isCalendarOpen && (
           <Calendar
+            className={classes.calendar}
             onClickDay={(value) => {
               dispatch(
                 fixturesActions.changeFixturesDate({

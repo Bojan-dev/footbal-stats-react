@@ -8,6 +8,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  user-select: none;
 }
 
 .colorModeSwitcher .colorModeToggler {
@@ -30,4 +31,20 @@
 
 .colorModeSwitcher .iconsContainer {
   transform: translate(200%, 0);
+}
+
+@media only screen and (max-width: 1200px) {
+  .colorModeSwitcher {
+    right: 2.5em;
+  }
+
+  .iconsContainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .colorModeSwitcher {
+    right: 1.75em;
+  }
 }

@@ -40,6 +40,10 @@ p {
   text-decoration: underline;
 }
 
+.textCapitalize {
+  text-transform: capitalize;
+}
+
 span {
   color: var(--main-color);
 }
@@ -177,6 +181,10 @@ input {
   margin-top: 20em;
 }
 
+.noMargin {
+  margin: 0;
+}
+
 .textColorMode {
   color: var(--text-color);
 }
@@ -193,8 +201,8 @@ input {
   color: var(--text-color-un);
 }
 
-.boxColor {
-  background-color: var(--box-color);
+.textColorBox {
+  color: var(--box-color);
 }
 
 .thirdColorBtn {
@@ -232,6 +240,34 @@ input {
   background-color: white;
 }
 
+.blueBkg {
+  background-color: var(--secondary-color);
+}
+
+.darkBlueBkg {
+  background-color: var(--third-color);
+}
+
+.brownBkg {
+  background-color: #800000;
+}
+
+.boxBkg {
+  background-color: var(--box-color);
+}
+
+.drawBkg {
+  background-color: var(--draw-color);
+}
+
+.lightRedBkg {
+  background-color: red;
+}
+
+.height--max {
+  height: 100%;
+}
+
 @keyframes visibilityAnim {
   0% {
     visibility: hidden;
@@ -248,5 +284,22 @@ input {
   main,
   .container {
     width: 90vw;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  h1 {
+    font-size: 1.825rem;
+    margin-top: 8.5em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem;
   }
 }

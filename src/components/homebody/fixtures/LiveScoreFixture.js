@@ -53,6 +53,7 @@ const LiveScoreFixture = ({ fixture, id }) => {
               goals={fixture.goals.home}
               isLive={checkMatchStatus.inProccess}
               isFinished={checkMatchStatus.isFinished}
+              winner={fixture.teams.home.winner}
             />
           )}
           {fixture.liveChange === 2 || fixture.liveChange === 3 ? (
@@ -71,6 +72,7 @@ const LiveScoreFixture = ({ fixture, id }) => {
               goals={fixture.goals.away}
               isLive={checkMatchStatus.inProccess}
               isFinished={checkMatchStatus.isFinished}
+              winner={fixture.teams.away.winner}
             />
           )}
         </div>

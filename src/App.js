@@ -10,11 +10,13 @@ import Fixtures from './pages/Fixtures';
 import SingleFixture from './pages/SingleFixture';
 import NotFound from './pages/NotFound';
 import FixedLiveResults from './components/livefixtures/FixedLiveResults';
-import SingleFixtureStats from './components/fixture/SingleFixtureStats';
-import SingleFixtureLineups from './components/fixture/SingleFixtureLineups';
-import SingleFixtureHeadToHead from './components/fixture/SingleFixtureHeadToHead';
+import SingleFixtureStats from './components/fixture/stats/SingleFixtureStats';
+import SingleFixtureLineups from './components/fixture/lineup/SingleFixtureLineups';
+import SingleFixtureHeadToHead from './components/fixture/headtohead/SingleFixtureHeadToHead';
 import SingleFixtureNews from './components/fixture/SingleFixtureNews';
-import SingleFixtureLeagueTable from './components/fixture/SingleFixtureLeagueTable';
+import SingleFixtureLeagueTable from './components/fixture/leaguetable/SingleFixtureLeagueTable';
+import LeagueTableForm from './components/fixture/leaguetable/LeagueTableForm';
+import LeagueTableScorersTable from './components/fixture/leaguetable/ScorersTable';
 
 function App() {
   return (
@@ -33,10 +35,30 @@ function App() {
             element={<SingleFixtureHeadToHead />}
           ></Route>
           <Route path="news" element={<SingleFixtureNews />}></Route>
-          <Route
-            path="leaguetable"
-            element={<SingleFixtureLeagueTable />}
-          ></Route>
+          <Route path="leaguetable/*" element={<SingleFixtureLeagueTable />}>
+            <Route
+              path="table"
+              element={
+                <LeagueTableForm
+                  page={'table'}
+                  columns={['P', 'W', 'D', 'L', 'G', 'GD', 'PTS']}
+                />
+              }
+            ></Route>
+            <Route
+              path="form"
+              element={
+                <LeagueTableForm
+                  page={'form'}
+                  columns={['P', 'W', 'D', 'L', 'G', 'PTS', 'FORM']}
+                />
+              }
+            ></Route>
+            <Route
+              path="scorers"
+              element={<LeagueTableScorersTable page={'scorers'} />}
+            ></Route>
+          </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

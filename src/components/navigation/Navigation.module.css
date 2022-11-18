@@ -10,6 +10,9 @@ header {
 
 .headerDarkMode {
   border-bottom: 1px solid #4c4c4c;
+  -webkit-box-shadow: 0px 3px 5px -3px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 3px 5px -3px rgba(255, 255, 255, 1);
+  box-shadow: 0px 3px 5px -3px rgba(255, 255, 255, 1);
 }
 
 header > div {
@@ -55,14 +58,14 @@ nav .nonActivePage:hover {
   border-right: none;
 }
 
+.rightRow {
+  gap: 2em;
+}
+
 .rightRow div {
   height: 1.5625em;
   width: 1px;
   background-color: white;
-}
-
-.rightRow > * {
-  margin: 0 1em;
 }
 
 .rightRow button:last-of-type {
@@ -77,4 +80,19 @@ nav .nonActivePage:hover {
 .searchBar:focus {
   outline: 3px solid #ddf2ff;
   transform: scaleX(107%);
+}
+
+@media only screen and (max-width: 1200px) {
+  header {
+    padding: 1.5em 5vw 0 5vw;
+  }
+
+  .rightRow {
+    padding-right: 2em;
+    gap: 1.5em;
+  }
+
+  .searchBar:focus {
+    transform: scaleX(102%);
+  }
 }

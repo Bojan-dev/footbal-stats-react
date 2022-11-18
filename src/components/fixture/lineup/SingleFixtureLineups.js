@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import SingleFixtureTeamLineup from './SingleFixtureTeamLineup';
 import SingleFixtureFieldLineup from './SingleFixtureFieldLineup';
 
-import classes from './SingleFixtureSummary.module.css';
+import classes from '../SingleFixtureClasses.module.css';
 
-import football_field from '../../images/football_field.svg';
+import football_field from '../../../images/football_field.svg';
 
 const SingleFixtureLineups = () => {
   const selectedFixture = useSelector((state) => state.fixture.selectedFixture);
@@ -78,14 +78,3 @@ const SingleFixtureLineups = () => {
 };
 
 export default SingleFixtureLineups;
-
-// {lineup.formation
-//   .split('-')
-//   .concat(['1'])
-//   .map((formationRow) => {
-//     console.log(formationRow);
-//     if (formationRow === '1')
-//       return <div className={classes.lineupPlayer}></div>;
-
-//     return <div className={classes.lineupPlayer}>s</div>;
-//   })}

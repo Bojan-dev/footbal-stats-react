@@ -1,0 +1,61 @@
+.gap {
+  position: relative;
+  gap: 2em;
+}
+
+.team {
+  width: 100%;
+}
+
+.team img {
+  margin-right: 0.5em;
+}
+
+.league {
+  gap: 0.325em;
+}
+
+.league img {
+  height: 2em;
+}
+
+.league .fullLeagueName {
+  color: white;
+  position: absolute;
+  padding: 0.25em;
+  transform: translateY(225%);
+  border-radius: 5px;
+}
+
+.winnerD {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.separationLine {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+}
+
+.loadMoreBtn {
+  color: var(--text-color);
+  background-color: initial;
+  padding: 0;
+  font-size: initial;
+}
+
+.loadMoreBtn svg {
+  margin-left: 0.25em;
+}
+
+.loadMoreBtn:hover {
+  text-decoration: underline;
+}
+
+.separateMargin {
+  margin-top: 3em;
+}

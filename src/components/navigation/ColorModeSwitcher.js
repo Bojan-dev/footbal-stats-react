@@ -11,7 +11,7 @@ const handleColorMode = (variable, value, variableTwo, valueTwo) => {
   document.documentElement.style.setProperty(variableTwo, valueTwo);
 };
 
-const ColorModeSwitcher = () => {
+const ColorModeSwitcher = ({ res }) => {
   const dispatch = useDispatch();
   const isColorModeWhite = useSelector(
     (state) => state.colorMode.colorModeWhite
@@ -32,7 +32,12 @@ const ColorModeSwitcher = () => {
     : handleColorMode('--white-color', '#000000', '--text-color', '#ffffff');
 
   return (
-    <div className={classes.colorModeSwitcher} onClick={toggleColorMode}>
+    <div
+      className={`${classes.colorModeSwitcher} ${
+        res ? classes.resColorSwitched : ''
+      }`}
+      onClick={toggleColorMode}
+    >
       <div
         className={`
           ${classes.colorModeToggler}

@@ -33,6 +33,10 @@
   transform: translate(200%, 0);
 }
 
+.resColorSwitched {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
   .colorModeSwitcher {
     right: 2.5em;
@@ -45,6 +49,18 @@
 
 @media only screen and (max-width: 600px) {
   .colorModeSwitcher {
-    right: 1.75em;
+    display: none;
+    height: 3.25em;
+    width: 1.5em;
+    left: 0;
+  }
+
+  .colorModeSwitcher .colorModeToggler {
+    transform: translateX(50%, 50%);
+  }
+
+  .resColorSwitched {
+    display: flex;
+    position: relative;
   }
 }

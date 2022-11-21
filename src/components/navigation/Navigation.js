@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './Navigation.module.css';
 import LogoWrapper from './LogoWrapper';
@@ -8,7 +11,12 @@ import ColorModeSwitcher from './ColorModeSwitcher';
 import { useSelector } from 'react-redux';
 
 const Navigation = () => {
+  const [isMenuShown, setIsMenuShown] = useState(false);
   const isColorModeWhite = useSelector((state) => state.colorMode.colorIsWhite);
+
+  const handleResMenu = () => {
+    setIsMenuShown((prevState) => !prevState);
+  };
 
   return (
     <header className={!isColorModeWhite && classes.headerDarkMode}>
@@ -26,10 +34,16 @@ const Navigation = () => {
           <button className="mainBtn">SIGN IN</button>
           <button className="secondaryBtn">SIGN UP</button> */}
         </div>
-        <ColorModeSwitcher />
+        <ColorModeSwitcher res={false} />
       </div>
       <nav>
-        <ul>
+        <ColorModeSwitcher res={true} />
+        <FontAwesomeIcon
+          className={classes.resMenu}
+          icon={faBars}
+          onClick={() => handleResMenu()}
+        />
+        <ul className={isMenuShown ? classes.menuOpen : ''}>
           <li>
             <NavLink
               className={({ isActive }) =>

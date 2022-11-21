@@ -31,3 +31,10 @@
   padding: 0.325em;
   color: var(--text-color-un);
 }
+
+@media only screen and (max-width: 600px) {
+  .teamInfo div:first-child {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

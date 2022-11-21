@@ -31,6 +31,7 @@ nav ul {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  transition: max-height 0.75s ease-in-out;
 }
 
 nav li {
@@ -82,6 +83,13 @@ nav .nonActivePage:hover {
   transform: scaleX(107%);
 }
 
+.resMenu {
+  display: none;
+  font-size: 2.25rem;
+  margin: 0.325em 0.5em 0.325em 0;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1200px) {
   header {
     padding: 1.5em 5vw 0 5vw;
@@ -94,5 +102,46 @@ nav .nonActivePage:hover {
 
   .searchBar:focus {
     transform: scaleX(102%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    padding-right: 1.25em;
+  }
+
+  nav {
+    position: relative;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 100%;
+    background-color: black;
+    max-height: 0;
+    visibility: hidden;
+  }
+
+  .rightRow {
+    padding-right: 1.25em;
+  }
+
+  .menuOpen {
+    max-height: 100em;
+    opacity: 100;
+    visibility: initial;
+  }
+
+  .resMenu {
+    display: initial;
   }
 }

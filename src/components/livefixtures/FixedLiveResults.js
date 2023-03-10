@@ -50,6 +50,8 @@ const FixedLiveResults = () => {
           )
         );
       }, 60 * 1000);
+      console.log('reaload');
+
       return () => {
         clearInterval(fetchingFixturesTimer);
       };

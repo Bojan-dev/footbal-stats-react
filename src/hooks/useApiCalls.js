@@ -4,6 +4,8 @@ const useApiCalls = (applyData) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  console.log('AAAAAAA');
+
   const sendRequest = useCallback(
     async (url, queryParams) => {
       setIsLoading(true);
